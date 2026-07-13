@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techxperts Pty Ltd — Microsoft Power Platform Consulting</title>
+<meta name="description" content="Techxperts Pty Ltd designs and builds Power Apps, Power Automate, Power BI and Power Pages solutions that work together as one system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="Techxperts_logo.jpeg">
+<style>
+  :root{
+    --ink:#0B1E3A;
+    --ink-soft:#122A50;
+    --azure:#1B4C96;
+    --azure-bright:#2E64BE;
+    --cyan:#2FA8D5;
+    --paper:#F5F7FA;
+    --slate:#56637A;
+    --white:#FFFFFF;
+    --line-dark: rgba(255,255,255,0.14);
+    --line-light: rgba(11,30,58,0.10);
+    --maxw: 1120px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+
+  a{ color:inherit; }
+  img,svg{ display:block; max-width:100%; }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,30,58,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.15rem;
+    color:var(--white);
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:center;
+  }
+  .brand span{ color:var(--cyan); }
+  .brand-badge{
+    display:flex;
+    align-items:center;
+    background:var(--white);
+    border-radius:8px;
+    padding:5px 10px;
+  }
+  .brand-badge img{
+    height:34px;
+    width:auto;
+    display:block;
+  }
+  .nav-links{
+    display:flex; gap:32px; list-style:none;
+  }
+  .nav-links a{
+    color:rgba(255,255,255,0.78);
+    text-decoration:none;
+    font-size:0.92rem;
+    font-weight:500;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{ color:var(--white); }
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    padding:9px 18px;
+    background:var(--cyan);
+    color:var(--ink);
+    border-radius:6px;
+    font-size:0.88rem;
+    font-weight:600;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ background:#54BEDF; transform:translateY(-1px); }
+  .nav-mobile-hide{ display:flex; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(47,168,213,0.16), transparent 60%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+    color:var(--white);
+    padding:96px 0 80px;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-eyebrow{ color:var(--cyan); margin-bottom:20px; }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.2vw, 3.2rem);
+    line-height:1.12;
+    color:var(--white);
+    max-width:15ch;
+  }
+  .hero p.lede{
+    margin-top:22px;
+    font-size:1.08rem;
+    color:rgba(255,255,255,0.76);
+    max-width:46ch;
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 24px;
+    background:var(--cyan);
+    color:var(--ink);
+    text-decoration:none;
+    border-radius:7px;
+    font-weight:600;
+    font-size:0.98rem;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn-primary:hover{ background:#54BEDF; transform:translateY(-1px); }
+  .btn-ghost{
+    color:rgba(255,255,255,0.82);
+    text-decoration:none;
+    font-size:0.95rem;
+    font-weight:500;
+    border-bottom:1px solid rgba(255,255,255,0.35);
+    padding-bottom:2px;
+  }
+  .btn-ghost:hover{ color:var(--white); border-color:var(--white); }
+
+  /* signature diagram */
+  .diagram-wrap{ position:relative; }
+  .diagram-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    color:rgba(255,255,255,0.4);
+    text-align:center;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-top:10px;
+  }
+  .node-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    fill:rgba(255,255,255,0.82);
+  }
+  .node-sub{
+    font-family:'Inter', sans-serif;
+    font-size:9.5px;
+    fill:rgba(255,255,255,0.42);
+  }
+  .diagram-link{
+    stroke:rgba(47,168,213,0.55);
+    stroke-width:1.4;
+    fill:none;
+    stroke-dasharray:220;
+    stroke-dashoffset:220;
+    animation:draw 1.4s ease forwards;
+  }
+  .diagram-node-circle{
+    fill:var(--ink-soft);
+    stroke:var(--cyan);
+    stroke-width:1.6;
+    transition:filter .25s ease;
+  }
+  .diagram-node{ cursor:default; }
+  .diagram-node:hover .diagram-node-circle{
+    filter:drop-shadow(0 0 8px rgba(47,168,213,0.85));
+  }
+  .hub-circle{
+    fill:var(--azure);
+    stroke:var(--cyan);
+    stroke-width:1.8;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{
+    background:var(--ink-soft);
+    border-top:1px solid var(--line-dark);
+    border-bottom:1px solid var(--line-dark);
+    padding:18px 0;
+    overflow:hidden;
+  }
+  .trust .wrap{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px 28px;
+  }
+  .trust span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:rgba(255,255,255,0.55);
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{ padding:88px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head .eyebrow{ color:var(--azure); margin-bottom:14px; }
+  .section-head h2{ font-size:clamp(1.6rem, 3vw, 2.2rem); }
+  .section-head p{ margin-top:16px; color:var(--slate); font-size:1.02rem; }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line-light);
+    border:1px solid var(--line-light);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .service-card{
+    background:var(--white);
+    padding:32px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .service-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--cyan);
+    background:rgba(47,168,213,0.1);
+    padding:4px 9px;
+    border-radius:5px;
+    width:fit-content;
+  }
+  .service-card h3{
+    font-size:1.15rem;
+    font-weight:600;
+  }
+  .service-card p{
+    color:var(--slate);
+    font-size:0.94rem;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{ background:var(--ink); color:var(--white); }
+  .process .section-head .eyebrow{ color:var(--cyan); }
+  .process .section-head h2{ color:var(--white); }
+  .process .section-head p{ color:rgba(255,255,255,0.66); }
+  .process-list{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:28px;
+  }
+  .process-step{
+    border-top:1px solid var(--line-dark);
+    padding-top:22px;
+  }
+  .process-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--cyan);
+    margin-bottom:14px;
+    display:block;
+  }
+  .process-step h3{
+    color:var(--white);
+    font-size:1.08rem;
+    margin-bottom:10px;
+  }
+  .process-step p{
+    color:rgba(255,255,255,0.62);
+    font-size:0.92rem;
+  }
+
+  /* ---------- WHY ---------- */
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:40px;
+  }
+  .why-item{ }
+  .why-mark{
+    width:34px; height:34px;
+    border-radius:8px;
+    background:var(--azure);
+    color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .why-item h3{ font-size:1.08rem; margin-bottom:10px; }
+  .why-item p{ color:var(--slate); font-size:0.94rem; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:linear-gradient(180deg, var(--ink-soft), var(--ink));
+    color:var(--white);
+    text-align:center;
+  }
+  .contact h2{
+    color:var(--white);
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+    max-width:16ch;
+    margin:0 auto;
+  }
+  .contact p{
+    margin:18px auto 0;
+    color:rgba(255,255,255,0.68);
+    max-width:46ch;
+    font-size:1.02rem;
+  }
+  .contact .btn-primary{ margin-top:32px; }
+  .contact-email{
+    display:block;
+    margin-top:16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.9rem;
+    color:rgba(255,255,255,0.55);
+    text-decoration:none;
+  }
+  .contact-email:hover{ color:var(--cyan); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    border-top:1px solid var(--line-dark);
+    padding:28px 0;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  footer .foot-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  footer .foot-brand .brand-badge img{ height:26px; }
+  footer .foot-brand-name{
+    font-family:'Fraunces', serif;
+    color:rgba(255,255,255,0.7);
+    font-size:0.92rem;
+  }
+  footer .foot-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:rgba(255,255,255,0.38);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px){
+    .nav-links{ display:none; }
+    .hero .wrap{ grid-template-columns:1fr; }
+    .diagram-wrap{ order:-1; max-width:340px; margin:0 auto; }
+    .services-grid{ grid-template-columns:1fr 1fr; }
+    .process-list{ grid-template-columns:1fr 1fr; }
+    .why-grid{ grid-template-columns:1fr; gap:32px; }
+    section{ padding:64px 0; }
+  }
+  @media (max-width: 520px){
+    .services-grid{ grid-template-columns:1fr; }
+    .process-list{ grid-template-columns:1fr; }
+    .wrap{ padding:0 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .diagram-link{ animation:none; stroke-dashoffset:0; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Techxperts Pty Ltd, back to top">
+      <span class="brand-badge"><img src="Techxperts_logo.jpeg" alt="Techxperts Pty Ltd logo"></span>
+    </a>
+    <ul class="nav-links nav-mobile-hide">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#why">Why us</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Book a consultation</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow hero-eyebrow">Microsoft Power Platform Consulting</div>
+      <h1>Your Microsoft 365 tools, wired into one system that runs itself.</h1>
+      <p class="lede">Techxperts Pty Ltd designs and builds Power Apps, Power Automate flows, Power BI dashboards and Power Pages portals that work together — not one-off tools bolted onto your business.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="mailto:techxpertsptylimited@gmail.com?subject=Power%20Platform%20consultation">Book a free consultation →</a>
+        <a class="btn-ghost" href="#services">See what we build</a>
+      </div>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 380 380" width="100%" role="img" aria-label="Diagram showing Power Apps, Power Automate, Power BI and Power Pages connected through a central Dataverse hub">
+        <!-- links -->
+        <path class="diagram-link" d="M190,190 L190,70" style="animation-delay:0.1s"/>
+        <path class="diagram-link" d="M190,190 L310,190" style="animation-delay:0.3s"/>
+        <path class="diagram-link" d="M190,190 L190,310" style="animation-delay:0.5s"/>
+        <path class="diagram-link" d="M190,190 L70,190" style="animation-delay:0.7s"/>
+
+        <!-- hub -->
+        <g class="diagram-node">
+          <circle class="hub-circle" cx="190" cy="190" r="38"/>
+          <text x="190" y="187" text-anchor="middle" class="node-label">Dataverse</text>
+          <text x="190" y="200" text-anchor="middle" class="node-sub">your data, unified</text>
+        </g>
+
+        <!-- top: Power Apps -->
+        <g class="diagram-node">
+          <circle class="diagram-node-circle" cx="190" cy="70" r="34"/>
+          <text x="190" y="66" text-anchor="middle" class="node-label">Power Apps</text>
+          <text x="190" y="79" text-anchor="middle" class="node-sub">custom apps</text>
+        </g>
+
+        <!-- right: Power Automate -->
+        <g class="diagram-node">
+          <circle class="diagram-node-circle" cx="310" cy="190" r="34"/>
+          <text x="310" y="186" text-anchor="middle" class="node-label">Automate</text>
+          <text x="310" y="199" text-anchor="middle" class="node-sub">workflows</text>
+        </g>
+
+        <!-- bottom: Power BI -->
+        <g class="diagram-node">
+          <circle class="diagram-node-circle" cx="190" cy="310" r="34"/>
+          <text x="190" y="306" text-anchor="middle" class="node-label">Power BI</text>
+          <text x="190" y="319" text-anchor="middle" class="node-sub">reporting</text>
+        </g>
+
+        <!-- left: Power Pages -->
+        <g class="diagram-node">
+          <circle class="diagram-node-circle" cx="70" cy="190" r="34"/>
+          <text x="70" y="186" text-anchor="middle" class="node-label">Pages</text>
+          <text x="70" y="199" text-anchor="middle" class="node-sub">portals &amp; AI</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">One data model. Four ways to use it.</div>
+    </div>
+  </div>
+</header>
+
+<div class="trust">
+  <div class="wrap">
+    <span>Power Apps</span><span>·</span>
+    <span>Power Automate</span><span>·</span>
+    <span>Power BI</span><span>·</span>
+    <span>Power Pages</span><span>·</span>
+    <span>Copilot Studio</span><span>·</span>
+    <span>Dataverse</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we build</div>
+      <h2>Four tools. One connected system.</h2>
+      <p>Each piece of the Power Platform solves a different problem. We build them to share the same data, so nothing you get is a dead end.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-tag">Power Apps</span>
+        <h3>Apps for the process spreadsheets can't handle</h3>
+        <p>Custom forms, approvals and case-management tools built around how your team actually works, on desktop or mobile.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Power Automate</span>
+        <h3>Remove the manual, repetitive steps</h3>
+        <p>Approvals, notifications, data entry and file handling running automatically across Microsoft 365 and your other business systems.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Power BI</span>
+        <h3>See what's actually happening</h3>
+        <p>Live dashboards and reports built on real operational data, not a monthly export someone has to remember to update.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">Power Pages &amp; Copilot</span>
+        <h3>Portals and AI agents, connected</h3>
+        <p>Customer and partner-facing portals, plus Copilot Studio agents that can answer questions using your own data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How we work</div>
+      <h2>A straight line from problem to working system</h2>
+      <p>Four stages, in order. Nothing gets built until we've agreed on what it needs to do.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-step">
+        <span class="process-num">01</span>
+        <h3>Discover</h3>
+        <p>We map your current process, systems and where things actually break down.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02</span>
+        <h3>Design</h3>
+        <p>We design a solution architecture inside Power Platform and Dataverse, and walk you through it before building.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03</span>
+        <h3>Build</h3>
+        <p>We build and test in short cycles, with your team reviewing progress at every stage — not just at the end.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">04</span>
+        <h3>Adopt</h3>
+        <p>We train your staff and hand over documentation, so the system is yours to run without us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why Techxperts</div>
+      <h2>Built to be used, not just delivered</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-mark">A</div>
+        <h3>Built for your team, not just IT</h3>
+        <p>We design around the people who'll use the app every day, so adoption doesn't need a mandate to work.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-mark">B</div>
+        <h3>You own what we build</h3>
+        <p>Everything lives in your Microsoft tenant. No separate license, no hidden dependency on us to keep running.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-mark">C</div>
+        <h3>Direct access, no hand-offs</h3>
+        <p>You work with the person actually building your solution — not an account manager relaying messages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Ready to see what's possible with what you already own?</h2>
+    <p>A consultation costs nothing and takes about 30 minutes. Bring one process you'd like to fix — we'll tell you honestly whether Power Platform is the right tool for it.</p>
+    <a class="btn-primary" href="mailto:techxpertsptylimited@gmail.com?subject=Power%20Platform%20consultation">Book a free consultation →</a>
+    <a class="contact-email" href="mailto:techxpertsptylimited@gmail.com">techxpertsptylimited@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <span class="brand-badge"><img src="Techxperts_logo.jpeg" alt="Techxperts Pty Ltd logo"></span>
+      <span class="foot-brand-name">Techxperts Pty Ltd</span>
+    </div>
+    <div class="foot-meta">© 2026 Techxperts Pty Ltd · techxperts.biz</div>
+  </div>
+</footer>
+
+</body>
+</html>
